@@ -255,9 +255,12 @@ fabric.properties
 # that are supposed to be shared within teams.
 
 .idea/*
+.idea
+.idea/
+.idea/dataSources.xml
 
-!.idea/codeStyles
-!.idea/runConfigurations
+.idea/codeStyles
+.idea/runConfigurations
 
 ### Python ###
 # Byte-compiled / optimized / DLL files
