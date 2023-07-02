@@ -1,3 +1,19 @@
 from django.db import models
 
-# Create your models here.
+
+class Tag(models.Model):
+    name = models.CharField(max_length=255)
+
+    class Meta:
+        ordering = ["name"]
+
+
+class Task(models.Model):
+    content = models.CharField(max_length=255)
+    datetime = models.DateTimeField(auto_now_add=True)
+    deadline = models.DateTimeField()
+    mark = models.BooleanField()
+    tags = models.ManyToManyField(Tag, related_name="tasks")
+
+    class Meta:
+        ordering = ["mark", "datetime"]
