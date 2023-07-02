@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>
+      TODO List
+      <a style="float:right" href="{% url 'service:task-create' %}" class="btn btn-primary">Add task</a>
+    </h1>
+    {% if task_list %}
+      {% for task in task_list %}
+        <h3>
+          {{ task.content }}
+          {% if task.mark %}
+            <span style="color:green">Done</span>
+            <a style="float:right" href="{% url 'service:complete-update' pk=task.id %}" class="btn btn-secondary">Undo</a>
+          {% else %}
+            <span style="color:red">Not done</span>
+            <a style="float:right" href="{% url 'service:complete-update' pk=task.id %}" class="btn btn-success">Complete</a>
+          {% endif %}
+        </h3>
+        <p>Created:{{ task.datetime }} {% if task.deadline %}Deadline:{{ task.deadline }}{% endif %}</p>
+        <p>
+          {% for tag in task.tags.all %}
+            <span class="text-muted">Tags: {{ tag.name }}</span>
+          {% endfor %}
+           <a href="{% url 'service:task-update' pk=task.id %}">Update</a>
+           <a href="{% url 'service:task-delete' pk=task.id %}">Delete</a>
+        </p>
+        <hr>
+      {% endfor %}
+    {% else %}
+        <p>There are no task!</p>
+    {% endif %}
+{% endblock %}
