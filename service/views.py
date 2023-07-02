@@ -32,7 +32,7 @@ class TaskCompleteUpdateView(generic.UpdateView):
 class TaskDeleteView(generic.DeleteView):
     model = Task
     fields = "__all__"
-    success_url = reverse_lazy("service:task-delete")
+    success_url = reverse_lazy("service:task-list")
 
 
 class TagListView(generic.ListView):
