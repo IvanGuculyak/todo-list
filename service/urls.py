@@ -19,7 +19,7 @@ urlpatterns = [
     path("tasks/<int:pk>/complete/update/", TaskCompleteUpdateView.as_view(), name="complete-update"),
     path("tasks/<int:pk>/delete/", TaskDeleteView.as_view(), name="task-delete"),
     path("tags/", TagListView.as_view(), name="tag-list"),
-    path("tags/create", TagCreateView.as_view(), name="tag-create"),
+    path("tags/create/", TagCreateView.as_view(), name="tag-create"),
     path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
     path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete")
 ]
