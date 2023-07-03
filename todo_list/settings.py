@@ -89,12 +89,6 @@ WSGI_APPLICATION = "todo_list.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-# DATABASES = {
-#     "default": {
-#         "ENGINE": "django.db.backends.sqlite3",
-#         "NAME": BASE_DIR / "db.sqlite3",
-#     }
-# }
 
 db_config = dj_database_url.config(default='postgres://ftkxniio:z83Mvx6Jh6oAmiR9bHhcYZ5aT6Vmvt0S@snuffleupagus.db.elephantsql.com/ftkxniio')
 db_config['ATOMIC_REQUESTS'] = True
